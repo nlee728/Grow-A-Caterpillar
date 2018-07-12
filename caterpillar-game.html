@@ -3,11 +3,11 @@
 
   <head>
     <meta charset="UTF-8">
-    <title>Grow a Butterfly</title>
+    <title>Let's Grow a Butterfly</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap File -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-
+    <link href="https://fonts.googleapis.com/css?family=Amaranth|Gaegu" rel="stylesheet">
 
 
     <!-- JQuery -->
@@ -15,7 +15,14 @@
 
     <style>
       .another-class {
-        border: 2px solid green;
+        border: 2px solid lightgrey;
+      }
+
+      .jumbotron {
+        height: 100px;
+        font-family: 'Amaranth', sans-serif;
+        padding:20px;
+        
       }
     </style>
 
@@ -29,16 +36,10 @@
       <!-- Jumbotron with Title -->
       <div class="jumbotron">
         <h1 class="text-center">
-          <strong>Grow a Butterfly</strong>
+          <strong>Let's Grow a Butterfly!</strong>
         </h1>
         <hr>
-        <div id="musicControls" class="text-center">
-          <button class="btn btn-warning btn-xs theme-button">
-            <span class="fa fa-music"></span> Play Theme!</button>
-          <button class="btn btn-dark btn-xs pause-button">
-            <span class="fa fa-pause"></span> Pause Song</button>
-        </div>
-
+      
       </div>
       <div class="row">
 
@@ -50,40 +51,30 @@
             <div class="card-body">
               <div class="text-center">
                 <button class="btn btn-dark btn-lg normal-button">
-                  <span class="fa fa-ok"></span> Normal</button>
-                <button class="btn btn-primary btn-lg grow-button">
-                  <span class="fa fa-plus"></span> Grow</button>
-                <button class="btn btn-danger btn-lg shrink-button">
-                  <span class="fa fa-minus"></span> Shrink</button>
+                  <span class="fa fa-ok"></span> Reset</button>
+                <button class="btn btn-dark btn-lg grow-button">
+                  <span class="fa fa-ok"></span> Eat</button>
+                <button class="btn btn-dark btn-lg meta-button">
+                  <span class="fa fa-ok"></span> Metamorphosize</button>
+                <button class="btn btn-dark btn-lg emerge-button">
+                  <span class="fa fa-ok"></span> Emerge</button>
               </div>
             </div>
           </div>
 
           <!-- Controls (Superpower Visibility) -->
           <div id="visibilityControls" class="card">
-            <h4 class="card-header">Superpowers - Invisiblity!</h4>
+            <h4 class="card-header">Camoflage!</h4>
             <div class="card-body">
               <div class="text-center">
                 <button class="btn btn-dark btn-lg vis-button">
                   <span class="fa fa-eye"></span> Visible</button>
                 <button class="btn btn-info btn-lg invis-button">
-                  <span class="fa fa-eye-slash"></span> Invisible</button>
+                  <span class="fa fa-eye-slash"></span> Hide</button>
               </div>
             </div>
           </div>
 
-          <!-- Controls (Stretch) -->
-          <div id="stretchControls" class="card">
-            <h4 class="card-header">Superpowers - Stretch!</h4>
-            <div class="card-body">
-              <div class="text-center">
-                <button class="btn btn-dark btn-lg unstretch-btn">
-                  <span class="fa fa-compress"></span> Normal</button>
-                <button class="btn btn-primary btn-lg stretch-btn">
-                  <span class="fa fa-expand"></span> Stretch</button>
-              </div>
-            </div>
-          </div>
 
           <!-- Controls (Superpower Move Controls) -->
           <div id="moveControls" class="card">
@@ -98,19 +89,17 @@
                 <button class="btn btn-dark btn-lg fa fa-arrow-right right-button">Right</button>
               </div>
               <br>
-              <div class="text-center">
-                <button class="btn btn-dark btn-lg back-button">
-                  <span class="fa fa-comment"></span>How Cool!</button>
               </div>
-            </div>
           </div>
         </div>
 
-        <!-- Right Panel (Captain Planet Hero)-->
+        <!-- Right Panel (Caterpillar)-->
         <div class="col-lg-6">
 
-          <!-- Captain Planet Image -->
-          <img src="../Caterpillar Game/Assets/images/caterpillar.png" alt="" class="img caterpillar" style="position:absolute; top:50px; left: 80px; z-index: -20; height: 300px">
+          <!-- Caterpillar Image -->
+          <img src="../Grow-A-Caterpillar/Assets/images/caterpillar.png" 
+          alt="" class="img caterpillar" 
+          style="position:absolute; top:50px; left: 80px; z-index: -20; height: 100px">
         </div>
       </div>
     </div>
@@ -122,28 +111,22 @@
 
         var caterpillar = $(".caterpillar");
 
-        // Gets Link for Theme Song
-        var audioElement = document.createElement("audio");
-        audioElement.setAttribute("src", "Assets/");
-
-        // Theme Button 
-        $(".theme-button").on("click", function() {
-          audioElement.play();
-        });
-        $(".pause-button").on("click", function() {
-          audioElement.pause();
-        });
-
         // Size Buttons
         $(".normal-button").on("click", function() {
-          caterpillar.animate({ height: "300px" });
+          caterpillar.animate({ height: "00px" });
+          caterpillar.attr("src", "../Grow-A-Caterpillar/Assets/images/caterpillar.png");
         });
         $(".grow-button").on("click", function() {
-          caterpillar.animate({ height: "500px" });
+          caterpillar.animate({ height: "+=50px" });
         });
-        $(".shrink-button").on("click", function() {
-          caterpillar.animate({ height: "100px" });
+
+        $(".meta-button").on("click", function() {
+        caterpillar.attr("src", "../Grow-A-Caterpillar/Assets/images/cocoon.png");
         });
+        $(".emerge-button").on("click", function() {
+        caterpillar.attr("src", "../Grow-A-Caterpillar/Assets/images/butterfly.gif");
+        });
+
 
         // Visibility Buttons
         $(".vis-button").on("click", function() {
@@ -151,16 +134,6 @@
         });
         $(".invis-button").on("click", function() {
           caterpillar.animate({ opacity: "0.05" });
-        });
-
-        // Stretch Buttons
-        $(".stretch-btn").on("click", function() {
-          caterpillar.animate({ height: "1000px", width: "200px" }, "slow");
-          caterpillar.addClass("another-class");
-        });
-        $(".unstretch-btn").on("click", function() {
-          caterpillar.animate({ height: "300px", width: "450px" }, "fast");
-          caterpillar.removeClass("another-class");
         });
 
         // Move Buttons
