@@ -1,0 +1,19 @@
+.another-class {
+    border: 2px solid lightgrey;
+  }
+
+  .jumbotron {
+    height: 100px;
+    font-family: 'Amaranth', sans-serif;
+    padding:20px;
+    background-color: lightgreen;
+  }
+
+  .card-header {
+    background-color: lightgreen;
+    text-align: center;
+  }
+
+  .invis-button {
+    background-color: orange;
+  }
